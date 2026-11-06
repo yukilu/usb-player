@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+server/data/
+
+# WorkBuddy 本地工作数据（记忆 / 日志），不纳入版本控制
+.workbuddy/

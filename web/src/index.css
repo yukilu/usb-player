@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-mist-100 antialiased;
+    background-image:
+      radial-gradient(900px 520px at 12% -8%, rgba(255, 138, 69, 0.1), transparent 65%),
+      radial-gradient(760px 480px at 96% 4%, rgba(93, 106, 190, 0.06), transparent 62%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(255, 138, 69, 0.28);
+    color: #1b2432;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 2px solid rgba(226, 101, 31, 0.7);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-slate-900/[0.08] bg-white;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-500 to-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-glow transition hover:brightness-105 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-900/[0.10] bg-white px-3 py-2 text-sm font-medium text-mist-200 transition hover:border-slate-900/20 hover:bg-slate-50 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-slate-900/[0.12] bg-white px-3.5 py-2.5 text-sm text-mist-100 placeholder:text-mist-500 transition focus:border-brand-500/70 focus:outline-none;
+  }
+
+  .label-xs {
+    @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-mist-400;
+  }
+}
+
+@layer utilities {
+  .scrollbar-slim {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(30, 41, 59, 0.22) transparent;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    background: rgba(30, 41, 59, 0.18);
+    border-radius: 999px;
+  }
+
+  .scrollbar-slim::-webkit-scrollbar-thumb:hover {
+    background: rgba(30, 41, 59, 0.32);
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #e9edf3 25%, #f5f7fa 50%, #e9edf3 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+}

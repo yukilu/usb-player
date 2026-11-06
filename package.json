@@ -1,0 +1,26 @@
+{
+  "name": "usb-player",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm run dev -w @usb-player/server",
+    "dev:web": "npm run dev -w @usb-player/web",
+    "build": "npm run build -w @usb-player/server && npm run build -w @usb-player/web",
+    "start": "npm run start -w @usb-player/server",
+    "typecheck": "npm run typecheck -w @usb-player/server && npm run typecheck -w @usb-player/web",
+    "preview": "npm run build && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
